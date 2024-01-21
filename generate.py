@@ -8,7 +8,7 @@ height = 3
 
 x = 1
 y = 1
-z= 1
+z = 1.5
 
 pyrosim.Send_Cube(name="Box", pos=[x,y,z] , size=[length,width,height])
 

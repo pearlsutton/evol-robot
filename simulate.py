@@ -12,7 +12,7 @@ p.setGravity(0,0,-9.8)
 # Floor.
 planeId = p.loadURDF("plane.urdf")
 # Information about our world.
-p.loadSDF("box.sdf")
+p.loadSDF("boxes.sdf")
 
 for x in range (1000):
     print(x)

@@ -1,10 +1,16 @@
 import pybullet as p
 import time
+import pybullet_data
 
 physicsClient = p.connect(p.GUI)
 
-# Determining forces that exist in our world. Gravity.
+p.setAdditionalSearchPath(pybullet_data.getDataPath())
+
+# Determining forces that exist in our world.
+# Gravity.
 p.setGravity(0,0,-9.8)
+# Floor.
+planeId = p.loadURDF("plane.urdf")
 # Information about our world.
 p.loadSDF("box.sdf")
 

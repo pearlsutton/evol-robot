@@ -18,5 +18,8 @@ z = 0.5
 
 for i in range (10):
     pyrosim.Send_Cube(name="Box", pos=[x,y,(z+i)] , size=[length,width,height])
+    length = length * .90
+    width = width * .90
+    height = height * .90
 
 pyrosim.End()

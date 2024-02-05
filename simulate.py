@@ -11,8 +11,8 @@ p.setAdditionalSearchPath(pybullet_data.getDataPath())
 p.setGravity(0,0,-9.8)
 # Floor.
 planeId = p.loadURDF("plane.urdf")
-# Information about our world.
-p.loadSDF("world.sdf")
+robotId = p.loadURDF("body.urdf")  # simulate.py tells pybullet to simulate a robot stored in body.urdf.
+p.loadSDF("world.sdf")             # simulate.py tells pybullet to simulate a world stored in world.sdf. Information about our world.
 
 for x in range (1000):
     print(x)

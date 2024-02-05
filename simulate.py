@@ -18,5 +18,6 @@ for x in range (1000):
     print(x)
     time.sleep(1/60)
     p.stepSimulation()
+    backLegTouch = p.Get_Touch_Sensor_Value_For_Link("BackLeg")
 
 p.disconnect()

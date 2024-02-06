@@ -17,11 +17,14 @@ robotId = p.loadURDF("body.urdf")  # simulate.py tells pybullet to simulate a ro
 p.loadSDF("world.sdf")             # simulate.py tells pybullet to simulate a world stored in world.sdf. Information about our world.
 
 pyrosim.Prepare_To_Simulate(robotId)
+backLegSensorValues = numpy.zeros(10000)
+
+
 for x in range (10000):
-    # print(x)
     time.sleep(1/60)
     p.stepSimulation()
-    backLegTouch = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
-    print(backLegTouch)
+    backLegSensorValues[x] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
+    print(backLegSensorValues)
 
+numpy.save('backLegSensorValues.npy', backLegSensorValues)
 p.disconnect()

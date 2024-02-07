@@ -7,7 +7,7 @@ frontLegSensorValues = numpy.load('data/frontLegSensorValues.npy', mmap_mode=Non
 print(backLegSensorValues)
 print(frontLegSensorValues)
 
-matplotlib.pyplot.plot(backLegSensorValues, label='BackLeg Sensor Values')
+matplotlib.pyplot.plot(backLegSensorValues, label='BackLeg Sensor Values', linewidth = 2.5)
 matplotlib.pyplot.plot(frontLegSensorValues, label='FrontLeg Sensor Values')
 
 matplotlib.pyplot.legend()

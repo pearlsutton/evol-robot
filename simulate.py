@@ -6,7 +6,7 @@ import numpy
 import array
 
 amplitude = numpy.pi/4.0
-frequency = 1
+frequency = 10
 phaseOffset = 0
 
 # physicsClient = p.connect(p.DIRECT)
@@ -19,12 +19,12 @@ robotId = p.loadURDF("body.urdf")  # simulate.py tells pybullet to simulate a ro
 p.loadSDF("world.sdf")             # simulate.py tells pybullet to simulate a world stored in world.sdf. Information about our world.
 
 pyrosim.Prepare_To_Simulate(robotId)
-backLegSensorValues = numpy.zeros(100)
-frontLegSensorValues = numpy.zeros(100)
+backLegSensorValues = numpy.zeros(1000)
+frontLegSensorValues = numpy.zeros(1000)
 
-targetAngles = numpy.sin(numpy.linspace(frequency * 0 + phaseOffset, frequency * 2*numpy.pi + phaseOffset, 1000)) * amplitude
+targetAngles = amplitude * numpy.sin(numpy.linspace(frequency*0 + phaseOffset, frequency*2*numpy.pi + phaseOffset, 1000))
 
-for x in range (100):
+for x in range (1000):
     time.sleep(1/240)
     p.stepSimulation()
     pyrosim.Set_Motor_For_Joint(

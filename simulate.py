@@ -21,20 +21,18 @@ p.loadSDF("world.sdf")             # simulate.py tells pybullet to simulate a wo
 pyrosim.Prepare_To_Simulate(robotId)
 backLegSensorValues = numpy.zeros(100)
 frontLegSensorValues = numpy.zeros(100)
-targetAngles = numpy.zeros(100)
+targetAngles = []
+
 # targetAngles = numpy.sin(numpy.linspace(0, 2*numpy.pi, 1000)) * numpy.pi/4.0
 
 # amplitude * sin(frequency * i + phaseOffset)
 for i in range (100):
-    targetAngles = numpy.sin(frequency*i + phaseOffset) * amplitude
+    targetAngles = amplitude * numpy.sin(numpy.linspace(frequency*i + phaseOffset, 2*numpy.pi, 1000)) * numpy.pi/4.0
 
 
-# targetAngles = numpy.linspace(numpy.sin(frequency+phaseOffset), numpy.sin(frequency*100+phaseOffset), 100)
+# individual = amplitude * numpy.sin(frequency*i + phaseOffset) * numpy.pi/4.0
+    # targetAngles.append(individual)
 
-
-# targetAngles = numpy.linspace(numpy.sin(frequency+phaseOffset), numpy.sin(frequency*100+phaseOffset), 100)
-
-exit()
 for x in range (100):
     time.sleep(1/240)
     p.stepSimulation()

@@ -3,6 +3,7 @@ import time
 import pybullet_data
 import pyrosim.pyrosim as pyrosim
 import numpy
+import array
 
 amplitude = numpy.pi/4.0
 frequency = 1
@@ -18,11 +19,23 @@ robotId = p.loadURDF("body.urdf")  # simulate.py tells pybullet to simulate a ro
 p.loadSDF("world.sdf")             # simulate.py tells pybullet to simulate a world stored in world.sdf. Information about our world.
 
 pyrosim.Prepare_To_Simulate(robotId)
-backLegSensorValues = numpy.zeros(1000)
-frontLegSensorValues = numpy.zeros(1000)
-targetAngles = numpy.sin(numpy.linspace(0, 2*numpy.pi, 1000)) * numpy.pi/4.0
+backLegSensorValues = numpy.zeros(100)
+frontLegSensorValues = numpy.zeros(100)
+targetAngles = numpy.zeros(100)
+# targetAngles = numpy.sin(numpy.linspace(0, 2*numpy.pi, 1000)) * numpy.pi/4.0
 
-for x in range (1000):
+# amplitude * sin(frequency * i + phaseOffset)
+for i in range (100):
+    targetAngles = numpy.sin(frequency*i + phaseOffset) * amplitude
+
+
+# targetAngles = numpy.linspace(numpy.sin(frequency+phaseOffset), numpy.sin(frequency*100+phaseOffset), 100)
+
+
+# targetAngles = numpy.linspace(numpy.sin(frequency+phaseOffset), numpy.sin(frequency*100+phaseOffset), 100)
+
+exit()
+for x in range (100):
     time.sleep(1/240)
     p.stepSimulation()
     pyrosim.Set_Motor_For_Joint(
@@ -37,7 +50,6 @@ for x in range (1000):
         controlMode = p.POSITION_CONTROL,
         targetPosition = targetAngles[x],
         maxForce = 500)
-    # targetAngles = numpy.sin(numpy.linspace(0, 2*numpy.pi, 1000))
     backLegSensorValues[x] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
     frontLegSensorValues[x] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
     print(backLegSensorValues)

@@ -1,3 +1,4 @@
+from sensor import SENSOR
 import pybullet as p
 import pyrosim.pyrosim as pyrosim
 

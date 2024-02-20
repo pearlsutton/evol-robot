@@ -14,3 +14,7 @@ class ROBOT:
         self.sensors = {}
         for linkName in pyrosim.linkNamesToIndices:
             self.sensors[linkName] = SENSOR(linkName)
+
+    def Sense(self):
+        for x in len(self.sensors):
+            self.sensors[x].Get_Value()

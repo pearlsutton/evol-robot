@@ -9,9 +9,9 @@ from simulation import SIMULATION
 
 simulation = SIMULATION()
 
-# simulation.RUN()
+simulation.RUN()
 
-# physicsClient = p.connect(p.DIRECT)
+# # physicsClient = p.connect(p.DIRECT)
 # physicsClient = p.connect(p.GUI)
 # p.setAdditionalSearchPath(pybullet_data.getDataPath())
 # # # Determining forces that exist in our world.

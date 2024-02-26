@@ -17,13 +17,10 @@ class ROBOT:
             self.sensors[linkName] = SENSOR(linkName)
 
     def Sense(self, t):
-        # Create a for loop in robot.Sense() that iterates over all the SENSOR
-        # instances stored in the dictionary self.sensors
-        # self.sensors["Torso"].Get_Value(t)
         for i in self.sensors:
             self.sensors[i].Get_Value(t)
 
-        # In ith pass through the for loop, call the ith SENSOR instance's Get_Value() method.
-        # When called, this method should store the current value of the touch sensor in self.values.
-        # But, we do not know which element it should be stored in. It should be stored in the tth element,
-        # where t is the current time step.
+    # def Prepare_To_Act(self):
+        # self.sensors = {}
+        # for linkName in pyrosim.linkNamesToIndices:
+        #     self.sensors[linkName] = SENSOR(linkName)

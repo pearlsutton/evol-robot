@@ -9,5 +9,5 @@ class SENSOR:
         self.linkName = linkName
         self.values = numpy.zeros(1000)
 
-    def Get_Value(self):
-        self.values = c.backLegSensorValues[self.linkName] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
+    def Get_Value(self, t):
+        self.values[t] = c.backLegSensorValues[self.linkName] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")

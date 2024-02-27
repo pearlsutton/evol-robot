@@ -42,6 +42,10 @@ class NEURAL_NETWORK:
     def Get_Neuron_Names(self):
         return (self.neurons).keys()
 
+    def Is_Motor_Neuron(self, neuronName):
+        pass
+        return neuronName.Is_Motor_Neuron()
+
 # ---------------- Private methods --------------------------------------
 
     def Add_Neuron_According_To(self,line):

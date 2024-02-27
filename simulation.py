@@ -19,7 +19,7 @@ class SIMULATION:
         p.disconnect()
 
     def RUN(self):
-        for t in range (100):
+        for t in range (1000):
             print(t)
             time.sleep(1/240)
             p.stepSimulation()

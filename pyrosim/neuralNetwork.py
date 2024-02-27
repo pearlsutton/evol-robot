@@ -30,11 +30,12 @@ class NEURAL_NETWORK:
 
     def Update(self):
 
-        for keys in self.neurons:
-            print(self.neurons[keys])
+        for neuronName in self.neurons:
+            if self.neurons[neuronName].Is_Sensor_Neuron():
+                self.neurons[neuronName].Update_Sensor_Neuron()
 
-        for keys in self.synapses:
-            print(self.synapses[keys])
+        for key in self.synapses:
+            print(key)
 
 # ---------------- Private methods --------------------------------------
 

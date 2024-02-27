@@ -31,6 +31,7 @@ class SIMULATION:
             time.sleep(1/240)
             p.stepSimulation()
             self.robot.Sense(t);
+            self.robot.Act()
         pyrosim.Set_Motor_For_Joint(
             bodyIndex = self.robot,
             jointName = b'Torso_BackLeg',

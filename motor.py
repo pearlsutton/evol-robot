@@ -23,3 +23,6 @@ class MOTOR:
     #         controlMode = p.POSITION_CONTROL,
     #         targetPosition = c.targetAnglesFrontLeg[t],
     #         maxForce = 50)
+
+    def Set_Value(self):
+        pass

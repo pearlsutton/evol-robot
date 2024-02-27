@@ -39,6 +39,9 @@ class NEURAL_NETWORK:
         for key in self.synapses:
             print(key)
 
+    def Get_Neuron_Names(self):
+        return (self.neurons).keys()
+
 # ---------------- Private methods --------------------------------------
 
     def Add_Neuron_According_To(self,line):

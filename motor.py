@@ -15,23 +15,22 @@ class MOTOR:
         self.offset = c.phaseOffsetBackLeg
 
         self.amplitude = c.amplitudeFrontLeg
-        self.frequency2 = 2*c.frequencyBackLeg
+        self.frequency2 = 0.5 * c.frequencyBackLeg
         self.offset = c.phaseOffsetBackLeg
 
         self.motorValues = self.amplitude * numpy.sin(numpy.linspace(self.frequency*0 + self.offset, self.frequency*2*numpy.pi + self.offset, 1000))
         self.motorValues2 = self.amplitude * numpy.sin(numpy.linspace(self.frequency2*0 + self.offset, self.frequency2*2*numpy.pi + self.offset, 1000))
 
-
         # if (self.jointName == "Torso_BackLeg"):
-        #     self.motorValuesBackLeg = self.amplitude * numpy.sin(numpy.linspace(self.amplitudeBackLeg*0 + self.offset, self.amplitudeBackLeg*2*numpy.pi + self.offset, 1000))
-        #     self.motorValuesFrontLeg = self.amplitude * numpy.sin(numpy.linspace(self.amplitudeBackLeg*0 + self.offset, self.amplitudeBackLeg*2*numpy.pi + self.offset, 1000))
+        #     self.motorValues = self.amplitude * numpy.sin(numpy.linspace(self.frequency*0 + self.offset, self.frequency*2*numpy.pi + self.offset, 1000))
+        #     self.motorValues2 = self.amplitude * numpy.sin(numpy.linspace(2*self.frequency2*0 + self.offset, 2*self.frequency2*2*numpy.pi + self.offset, 1000))
+        #
         # elif (self.jointName == "Torso_FrontLeg"):
-        #     self.motorValuesBackLeg = self.amplitude * numpy.sin(numpy.linspace(self.amplitudeFrontLeg*0 + self.offset, self.amplitudeFrontLeg*2*numpy.pi + self.offset, 1000))
-        #     self.motorValuesFrontLeg = self.amplitude * numpy.sin(numpy.linspace(self.amplitudeFrontLeg*0 + self.offset, self.amplitudeFrontLeg*2*numpy.pi + self.offset, 1000))
+        #     self.motorValues = self.amplitude * numpy.sin(numpy.linspace(2*self.frequency*0 + self.offset, 2*self.frequency*2*numpy.pi + self.offset, 1000))
+        #     self.motorValues2 = self.amplitude * numpy.sin(numpy.linspace(self.frequency2*0 + self.offset, self.frequency2*2*numpy.pi + self.offset, 1000))
 
 
     def Set_Value(self, robot, t):
-            print("Set_Value() called")
             self.motorValues[t] = pyrosim.Set_Motor_For_Joint(
                 bodyIndex = robot,
                 jointName = b'Torso_BackLeg',

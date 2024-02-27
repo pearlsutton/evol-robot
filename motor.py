@@ -24,3 +24,8 @@ class MOTOR:
             controlMode = p.POSITION_CONTROL,
             targetPosition = self.motorValues[t],
             maxForce = 50)
+
+    def Save_Values(self):
+        pass
+        numpy.save('data/motorValuesBackLeg.npy', c.targetAnglesBackLeg, allow_pickle=True, fix_imports=True)
+        numpy.save('data/motorValuesFrontLeg.npy', c.targetAnglesFrontLeg, allow_pickle=True, fix_imports=True)

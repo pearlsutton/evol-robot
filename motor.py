@@ -5,7 +5,6 @@ import pybullet as p
 
 class MOTOR:
     def __init__(self, jointName):
-        print("MOTOR constructor")
         self.jointName = jointName
         self.Prepare_To_Act()
 
@@ -30,19 +29,20 @@ class MOTOR:
         #     self.motorValues2 = self.amplitude * numpy.sin(numpy.linspace(self.frequency2*0 + self.offset, self.frequency2*2*numpy.pi + self.offset, 1000))
 
 
-    def Set_Value(self, robot, t):
-            self.motorValues[t] = pyrosim.Set_Motor_For_Joint(
-                bodyIndex = robot,
-                jointName = b'Torso_BackLeg',
-                controlMode = p.POSITION_CONTROL,
-                targetPosition = self.motorValues[t],
-                maxForce = 50)
-            self.motorValues2[t] = pyrosim.Set_Motor_For_Joint(
-                bodyIndex = robot,
-                jointName = b'Torso_FrontLeg',
-                controlMode = p.POSITION_CONTROL,
-                targetPosition = self.motorValues2[t],
-                maxForce = 50)
+    def Set_Value(self, robot, desiredAngle):
+        print("Set_Value() called")
+        pyrosim.Set_Motor_For_Joint(
+            bodyIndex = robot,
+            jointName = b'Torso_BackLeg',
+            controlMode = p.POSITION_CONTROL,
+            targetPosition = desiredAngle,
+            maxForce = 50)
+        pyrosim.Set_Motor_For_Joint(
+            bodyIndex = robot,
+            jointName = b'Torso_FrontLeg',
+            controlMode = p.POSITION_CONTROL,
+            targetPosition = desiredAngle,
+            maxForce = 50)
 
     def Save_Values(self):
         pass

@@ -17,20 +17,19 @@ class MOTOR:
         self.frequency2 = 0.5 * c.frequencyBackLeg
         self.offset = c.phaseOffsetBackLeg
 
-        self.motorValues = self.amplitude * numpy.sin(numpy.linspace(self.frequency*0 + self.offset, self.frequency*2*numpy.pi + self.offset, 1000))
-        self.motorValues2 = self.amplitude * numpy.sin(numpy.linspace(self.frequency2*0 + self.offset, self.frequency2*2*numpy.pi + self.offset, 1000))
+        # self.motorValues = self.amplitude * numpy.sin(numpy.linspace(self.frequency*0 + self.offset, self.frequency*2*numpy.pi + self.offset, 1000))
+        # self.motorValues2 = self.amplitude * numpy.sin(numpy.linspace(self.frequency2*0 + self.offset, self.frequency2*2*numpy.pi + self.offset, 1000))
 
-        # if (self.jointName == "Torso_BackLeg"):
-        #     self.motorValues = self.amplitude * numpy.sin(numpy.linspace(self.frequency*0 + self.offset, self.frequency*2*numpy.pi + self.offset, 1000))
-        #     self.motorValues2 = self.amplitude * numpy.sin(numpy.linspace(2*self.frequency2*0 + self.offset, 2*self.frequency2*2*numpy.pi + self.offset, 1000))
-        #
-        # elif (self.jointName == "Torso_FrontLeg"):
-        #     self.motorValues = self.amplitude * numpy.sin(numpy.linspace(2*self.frequency*0 + self.offset, 2*self.frequency*2*numpy.pi + self.offset, 1000))
-        #     self.motorValues2 = self.amplitude * numpy.sin(numpy.linspace(self.frequency2*0 + self.offset, self.frequency2*2*numpy.pi + self.offset, 1000))
+        if (self.jointName == b'Torso_BackLeg'):
+            self.motorValues = self.amplitude * numpy.sin(numpy.linspace(self.frequency*0 + self.offset, self.frequency*2*numpy.pi + self.offset, 1000))
+            self.motorValues2 = self.amplitude * numpy.sin(numpy.linspace(2*self.frequency2*0 + self.offset, 2*self.frequency2*2*numpy.pi + self.offset, 1000))
+
+        elif (self.jointName == b'Torso_FrontLeg'):
+            self.motorValues = self.amplitude * numpy.sin(numpy.linspace(2*self.frequency*0 + self.offset, 2*self.frequency*2*numpy.pi + self.offset, 1000))
+            self.motorValues2 = self.amplitude * numpy.sin(numpy.linspace(self.frequency2*0 + self.offset, self.frequency2*2*numpy.pi + self.offset, 1000))
 
 
     def Set_Value(self, robot, desiredAngle):
-        print("Set_Value() called")
         pyrosim.Set_Motor_For_Joint(
             bodyIndex = robot,
             jointName = b'Torso_BackLeg',

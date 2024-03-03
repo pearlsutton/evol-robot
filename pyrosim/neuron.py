@@ -7,7 +7,7 @@ import pyrosim.pyrosim as pyrosim
 
 import pyrosim.constants as c
 
-class NEURON: 
+class NEURON:
 
     def __init__(self,line):
 
@@ -52,13 +52,12 @@ class NEURON:
         self.Set_Value(0)
 
         print(f"BEFORE: {neurons[self.Get_Name()].Get_Value()}")
-
         for key in synapses:
             if (key[1] == self.Get_Name()):
                 self.Allow_Presynaptic_Neuron_To_Influence_Me(synapses[key].Get_Weight(), neurons[key[0]].Get_Value())
         self.Threshold()
         print(f"AFTER: {neurons[self.Get_Name()].Get_Value()}")
-        exit()
+
 
     def Is_Hidden_Neuron(self):
 
@@ -82,13 +81,11 @@ class NEURON:
 
         self.value = value
 
-    def Allow_Presynaptic_Neuron_To_Influence_Me(self, current_synapse_weight, presynaptic_neuron):
-        print(f"current_synapse_weight: {current_synapse_weight}")
-        print(f"presynaptic_neuron: {presynaptic_neuron}")
-        self.Add_To_Value(current_synapse_weight * presynaptic_neuron)
+    def Allow_Presynaptic_Neuron_To_Influence_Me(self, current_synapse_weight, presynaptic_neuron_value):
+        self.Add_To_Value(current_synapse_weight * presynaptic_neuron_value)
 
 
-# -------------------------- Private methods -------------------------
+    # -------------------------- Private methods -------------------------
 
     def Determine_Name(self,line):
 
@@ -114,15 +111,15 @@ class NEURON:
 
     def Print_Name(self):
 
-       print(self.name)
+        print(self.name)
 
     def Print_Type(self):
 
-       print(self.type)
+        print(self.type)
 
     def Print_Value(self):
 
-       print(self.value , " " , end="" )
+        print(self.value , " " , end="" )
 
     def Search_For_Joint_Name(self,line):
 

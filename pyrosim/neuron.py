@@ -51,6 +51,9 @@ class NEURON:
     def Update_Hidden_Or_Motor_Neuron(self, neurons, synapses):
         self.Set_Value(0)
 
+        # for key in synapses:
+        #     if (key[1] == self.Get_Name()):
+
     def Is_Hidden_Neuron(self):
 
         return self.type == c.HIDDEN_NEURON

@@ -5,7 +5,6 @@ import constants as c
 
 class SENSOR:
     def __init__(self, linkName):
-        print("SENSOR constructor")
         self.linkName = linkName
         self.values = numpy.zeros(1000)
 

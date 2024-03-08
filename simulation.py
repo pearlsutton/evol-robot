@@ -6,7 +6,6 @@ import pybullet_data
 
 class SIMULATION:
     def __init__(self):
-        print("SIMULATION constructor")
         # self.physicsClient = p.connect(p.DIRECT)
         self.physicsClient = p.connect(p.GUI)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
@@ -20,7 +19,7 @@ class SIMULATION:
 
     def RUN(self):
         for t in range (1000):
-            print(t)
+            # print(t)
             time.sleep(1/240)
             p.stepSimulation()
             self.robot.Sense(t)

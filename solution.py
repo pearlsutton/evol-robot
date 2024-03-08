@@ -10,6 +10,7 @@ class SOLUTION:
         SOLUTION.Create_World(self)
         SOLUTION.Create_Robot(self)
         SOLUTION.Create_Brain(self)
+        os.system("python3 simulate.py")
     def Create_World(self):
         pass
         # pyrosim.Start_SDF("world.sdf")

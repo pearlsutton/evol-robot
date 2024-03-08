@@ -43,7 +43,7 @@ def Generate_Brain():
 
     for i in sensor_neurons_vector:
         for j in motor_neurons_vector:
-            pyrosim.Send_Synapse( sourceNeuronName = i , targetNeuronName = j , weight = random.random() )
+            pyrosim.Send_Synapse( sourceNeuronName = i , targetNeuronName = j , weight = random.uniform(-1,1) )
 
     pyrosim.End()
 

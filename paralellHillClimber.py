@@ -3,7 +3,7 @@ import pybullet as p
 import constants as c
 import copy
 
-class HILL_CLIMBER:
+class PARALLEL_HILL_CLIMBER:
     def __init__(self):
         self.parent = SOLUTION()
 

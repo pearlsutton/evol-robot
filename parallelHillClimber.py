@@ -46,4 +46,4 @@ class PARALLEL_HILL_CLIMBER:
             self.parent = self.child
 
     def Show_Best(self):
-        self.parent.Evaluate("GUI")
+        self.parents.Evaluate("GUI")

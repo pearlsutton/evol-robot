@@ -20,10 +20,11 @@ class SOLUTION:
         f.close()
 
     def Create_World(self):
-            pass
-            # pyrosim.Start_SDF("world.sdf")
-            # pyrosim.Send_Cube(name="Box", pos=[2,2,z] , size=[length,width,height])
-            # pyrosim.End()
+        pass
+        # pyrosim.Start_SDF("world.sdf")
+        # pyrosim.Send_Cube(name="Box", pos=[2,2,z] , size=[length,width,height])
+        # pyrosim.End()
+
     def Create_Body(self):
         pass
         # pyrosim.Start_URDF("body.urdf")
@@ -35,7 +36,7 @@ class SOLUTION:
         # pyrosim.End()
 
     def Create_Brain(self):
-        pyrosim.Start_NeuralNetwork("brain.nndf")
+        pyrosim.Start_NeuralNetwork(f"brain{self.myID}.nndf")
 
         pyrosim.Send_Sensor_Neuron(name = 0 , linkName = "Torso")
         pyrosim.Send_Sensor_Neuron(name = 1 , linkName = "BackLeg")

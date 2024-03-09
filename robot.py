@@ -6,8 +6,8 @@ import pyrosim.pyrosim as pyrosim
 import numpy
 
 class ROBOT:
-    def __init__(self):
-        self.nn = NEURAL_NETWORK("brain.nndf")
+    def __init__(self, solutionID):
+        self.nn = NEURAL_NETWORK(f"brain{solutionID}.nndf")
         self.motors = {}
         self.sensors = {}
         self.robotId = p.loadURDF("body.urdf")  # simulate.py tells pybullet to simulate a robot stored in body.urdf.

@@ -41,12 +41,8 @@ class ROBOT:
 
     def Get_Fitness(self):
         stateOfLinkZero = p.getLinkState(self.robotId,0)
-        print(f"stateOfLinkZero: {stateOfLinkZero}")
         positionOfLinkZero = stateOfLinkZero[0]
-        print(f"positionOfLinkZero: {positionOfLinkZero}")
         xCoordinateOfLinkZero = positionOfLinkZero[0]
-        print(f"xCoordinateOfLinkZero: {xCoordinateOfLinkZero}")
-        # exit()
         f = open("fitness.txt", "w")
         f.write(str(xCoordinateOfLinkZero))
         f.close()

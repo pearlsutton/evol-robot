@@ -17,7 +17,7 @@ class SOLUTION:
         # pyrosim.Start_SDF("world.sdf")
         # pyrosim.Send_Cube(name="Box", pos=[2,2,z] , size=[length,width,height])
         # pyrosim.End()
-    def Generate_Body(self):
+    def Create_Body(self):
         pass
         # pyrosim.Start_URDF("body.urdf")
         # pyrosim.Send_Cube(name="Torso", pos=[0,0,1.5] , size=[length,width,height])

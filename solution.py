@@ -8,16 +8,25 @@ class SOLUTION:
 
     def Evaluate(self):
         SOLUTION.Create_World(self)
-        SOLUTION.Create_Robot(self)
+        SOLUTION.Create_Body(self)
         SOLUTION.Create_Brain(self)
         os.system("python3 simulate.py")
+
     def Create_World(self):
         pass
         # pyrosim.Start_SDF("world.sdf")
         # pyrosim.Send_Cube(name="Box", pos=[2,2,z] , size=[length,width,height])
         # pyrosim.End()
-    def Create_Robot(self):
-         pass
+    def Generate_Body(self):
+        pass
+        # pyrosim.Start_URDF("body.urdf")
+        # pyrosim.Send_Cube(name="Torso", pos=[0,0,1.5] , size=[length,width,height])
+        # pyrosim.Send_Joint( name = "Torso_BackLeg" , parent= "Torso" , child = "BackLeg" , type = "revolute", position = [-.5,0,1])
+        # pyrosim.Send_Cube(name="BackLeg", pos=[-.5,0,-.5] , size=[length,width,height])
+        # pyrosim.Send_Joint( name = "Torso_FrontLeg" , parent= "Torso" , child = "FrontLeg" , type = "revolute", position = [.5,0,1])
+        # pyrosim.Send_Cube(name="FrontLeg", pos=[.5,0,-.5] , size=[length,width,height])
+        # pyrosim.End()
+
     def Create_Brain(self):
         pyrosim.Start_NeuralNetwork("brain.nndf")
 

@@ -5,8 +5,10 @@ import copy
 
 class PARALLEL_HILL_CLIMBER:
     def __init__(self):
-        pass
-        # self.parent = SOLUTION()
+        self.parents = {}
+        for key in range(0, c.populationSize):
+            self.parents[key] = SOLUTION()
+        print(self.parents)
 
     def Evolve(self):
         pass

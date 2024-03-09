@@ -26,3 +26,5 @@ newtargetAnglesBackLeg = amplitudeBackLeg * numpy.sin(numpy.linspace(frequencyBa
 newtargetAnglesFrontLeg = amplitudeFrontLeg * numpy.sin(numpy.linspace(frequencyFrontLeg*0 + phaseOffsetFrontLeg, frequencyFrontLeg*2*numpy.pi + phaseOffsetFrontLeg, 1000))
 
 numberOfGenerations = 10
+
+populationSize = 2

@@ -8,11 +8,9 @@ class HILL_CLIMBER:
         self.parent = SOLUTION()
 
     def Evolve(self):
-        self.parent.Evaluate("DIRECT")
-        for i in range(1):
+        self.parent.Evaluate("GUI")
+        for currentGeneration in range(c.numberOfGenerations):
             self.Evolve_For_One_Generation()
-        # for currentGeneration in range(c.numberOfGenerations):
-        #     self.Evolve_For_One_Generation()
 
     def Evolve_For_One_Generation(self):
         self.Spawn()

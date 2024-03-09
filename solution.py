@@ -4,7 +4,8 @@ import os
 import random
 
 class SOLUTION:
-    def __init__(self):
+    def __init__(self, nextAvailableID):
+        self.myID = nextAvailableID
         self.weights = 2 * numpy.random.rand(3, 2) - 1
 
     def Evaluate(self, directOrGUI):
@@ -58,3 +59,6 @@ class SOLUTION:
         randomRow = random.randint(0,2)
         randomColumn = random.randint(0,1)
         self.weights[randomRow,randomColumn] = random.random() * 2 - 1
+
+    def Set_ID(self, nextAvailableID):
+        self.myID = nextAvailableID

@@ -8,10 +8,12 @@ class PARALLEL_HILL_CLIMBER:
         self.parents = {}
         for key in range(0, c.populationSize):
             self.parents[key] = SOLUTION()
-        print(self.parents)
 
     def Evolve(self):
-        pass
+        for key in self.parents:
+            print(self.parents.get(key))
+            self.parents.get(key).Evaluate("GUI")
+
         # self.parent.Evaluate("GUI")
         # for currentGeneration in range(c.numberOfGenerations):
         #     self.Evolve_For_One_Generation()

@@ -11,7 +11,7 @@ class SOLUTION:
         SOLUTION.Create_World(self)
         SOLUTION.Create_Body(self)
         SOLUTION.Create_Brain(self)
-        os.system(f"python3 simulate.py {directOrGUI}")
+        os.system(f"python3 simulate.py {directOrGUI} &")
 
         fitnessFile = "fitness.txt"
         f = open(fitnessFile, "r")

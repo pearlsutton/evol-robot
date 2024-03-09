@@ -15,7 +15,7 @@ class SOLUTION:
 
         fitnessFile = "fitness.txt"
         f = open(fitnessFile, "r")
-        self.fitness = f.read()
+        self.fitness = float(f.read())
         f.close()
 
     def Create_World(self):

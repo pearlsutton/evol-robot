@@ -25,3 +25,17 @@ class SIMULATION:
             self.robot.Sense(t)
             self.robot.Think()
             self.robot.Act(t)
+
+    def Get_Fitness(self):
+        self.robot.Get_Fitness()
+
+
+
+
+
+
+
+
+
+
+

@@ -5,12 +5,14 @@ import copy
 
 class PARALLEL_HILL_CLIMBER:
     def __init__(self):
-        self.parent = SOLUTION()
+        pass
+        # self.parent = SOLUTION()
 
     def Evolve(self):
-        self.parent.Evaluate("GUI")
-        for currentGeneration in range(c.numberOfGenerations):
-            self.Evolve_For_One_Generation()
+        pass
+        # self.parent.Evaluate("GUI")
+        # for currentGeneration in range(c.numberOfGenerations):
+        #     self.Evolve_For_One_Generation()
 
     def Evolve_For_One_Generation(self):
         self.Spawn()
@@ -36,4 +38,5 @@ class PARALLEL_HILL_CLIMBER:
             self.parent = self.child
 
     def Show_Best(self):
-        self.parent.Evaluate("GUI")
+        pass
+        # self.parent.Evaluate("GUI")

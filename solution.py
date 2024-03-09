@@ -12,11 +12,16 @@ class SOLUTION:
         SOLUTION.Create_Brain(self)
         os.system("python3 simulate.py")
 
+        fitnessFile = "fitness.txt"
+        f = open(fitnessFile, "r")
+        self.fitness = f.read()
+        f.close()
+
     def Create_World(self):
-        pass
-        # pyrosim.Start_SDF("world.sdf")
-        # pyrosim.Send_Cube(name="Box", pos=[2,2,z] , size=[length,width,height])
-        # pyrosim.End()
+            pass
+            # pyrosim.Start_SDF("world.sdf")
+            # pyrosim.Send_Cube(name="Box", pos=[2,2,z] , size=[length,width,height])
+            # pyrosim.End()
     def Create_Body(self):
         pass
         # pyrosim.Start_URDF("body.urdf")

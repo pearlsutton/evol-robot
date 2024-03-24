@@ -8,7 +8,8 @@ import os
 
 class ROBOT:
     def __init__(self, solutionID):
-        self.nn = NEURAL_NETWORK(f"brain{solutionID}.nndf")
+        self.solutionID = solutionID
+        self.nn = NEURAL_NETWORK(f"brain{self.solutionID}.nndf")
         self.motors = {}
         self.sensors = {}
         self.robotId = p.loadURDF("body.urdf")  # simulate.py tells pybullet to simulate a robot stored in body.urdf.
@@ -16,7 +17,7 @@ class ROBOT:
         self.Prepare_To_Sense()
         self.Prepare_To_Act()
         self.Get_Fitness()
-        os.system(f"rm brain{solutionID}.nndf")
+        os.system(f"rm brain{self.solutionID}.nndf")
 
     def Prepare_To_Sense(self):
         for linkName in pyrosim.linkNamesToIndices:
@@ -45,6 +46,6 @@ class ROBOT:
         stateOfLinkZero = p.getLinkState(self.robotId,0)
         positionOfLinkZero = stateOfLinkZero[0]
         xCoordinateOfLinkZero = positionOfLinkZero[0]
-        f = open("fitness.txt", "w")
+        f = open(f"fitness{self.solutionID}.txt", "w")
         f.write(str(xCoordinateOfLinkZero))
         f.close()

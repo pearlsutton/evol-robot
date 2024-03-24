@@ -10,11 +10,12 @@ class PARALLEL_HILL_CLIMBER:
         for key in range(0, c.populationSize):
             self.parents[key] = SOLUTION(self.nextAvailableID)
             self.nextAvailableID += 1
+        # print(self.parents)
+
 
     def Evolve(self):
         for key in self.parents:
-            print(self.parents.get(key))
-            self.parents.get(key).Evaluate("GUI")
+            self.parents[key].Evaluate("GUI")
 
         # self.parent.Evaluate("GUI")
         # for currentGeneration in range(c.numberOfGenerations):
@@ -30,7 +31,9 @@ class PARALLEL_HILL_CLIMBER:
     def Spawn(self):
         self.child = copy.deepcopy(self.parent)
         self.child.Set_ID(self.nextAvailableID)
+        print("self.nextAvailableID: " + self.nextAvailableID)
         self.nextAvailableID += 1
+
 
     def Mutate(self):
         self.child.Mutate()
@@ -46,4 +49,5 @@ class PARALLEL_HILL_CLIMBER:
             self.parent = self.child
 
     def Show_Best(self):
-        self.parents.Evaluate("GUI")
+        pass
+        # self.parent.Evaluate("GUI")

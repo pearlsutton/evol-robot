@@ -5,14 +5,14 @@ import random
 
 class SOLUTION:
     def __init__(self, nextAvailableID):
-        self.myID = nextAvailableID
         self.weights = 2 * numpy.random.rand(3, 2) - 1
+        self.myID = nextAvailableID
 
     def Evaluate(self, directOrGUI):
         SOLUTION.Create_World(self)
         SOLUTION.Create_Body(self)
         SOLUTION.Create_Brain(self)
-        os.system(f"python3 simulate.py {directOrGUI} &")
+        os.system("python3 simulate.py " + directOrGUI + " " + str(self.myID) + " &")
 
         fitnessFile = "fitness.txt"
         f = open(fitnessFile, "r")
@@ -24,7 +24,6 @@ class SOLUTION:
         # pyrosim.Start_SDF("world.sdf")
         # pyrosim.Send_Cube(name="Box", pos=[2,2,z] , size=[length,width,height])
         # pyrosim.End()
-
     def Create_Body(self):
         pass
         # pyrosim.Start_URDF("body.urdf")

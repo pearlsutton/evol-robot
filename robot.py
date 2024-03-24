@@ -4,6 +4,7 @@ from pyrosim.neuralNetwork import NEURAL_NETWORK
 import pybullet as p
 import pyrosim.pyrosim as pyrosim
 import numpy
+import os
 
 class ROBOT:
     def __init__(self, solutionID):
@@ -15,6 +16,7 @@ class ROBOT:
         self.Prepare_To_Sense()
         self.Prepare_To_Act()
         self.Get_Fitness()
+        os.system(f"rm brain{solutionID}.nndf")
 
     def Prepare_To_Sense(self):
         for linkName in pyrosim.linkNamesToIndices:

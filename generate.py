@@ -51,5 +51,3 @@ Create_World()
 Create_Robot()
 Generate_Body()
 Generate_Brain()
-
-

@@ -24,10 +24,9 @@ class SOLUTION:
 
         f = open(fitnessFile, "r")
         self.fitness = float(f.read())
-        print(f"SELF.FITNESS HELLO: {self.fitness}")
+        print(f"SELF.FITNESS FAIRY: {self.fitness}")
         # print("clown del fitness" + str(self.myID) + ".txt")
         f.close()
-
         os.system("rm fitness" + str(self.myID) + ".txt")
 
 

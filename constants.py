@@ -27,4 +27,4 @@ newtargetAnglesFrontLeg = amplitudeFrontLeg * numpy.sin(numpy.linspace(frequency
 
 numberOfGenerations = 10
 
-populationSize = 2
+populationSize = 10

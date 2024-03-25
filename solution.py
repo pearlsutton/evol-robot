@@ -25,8 +25,11 @@ class SOLUTION:
         f = open(fitnessFile, "r")
         self.fitness = float(f.read())
         print(f"SELF.FITNESS HELLO: {self.fitness}")
+        # print("clown del fitness" + str(self.myID) + ".txt")
         f.close()
-        os.system("del fitness" + str(self.myID) + ".txt")
+
+        os.system("rm fitness" + str(self.myID) + ".txt")
+
 
 
     def Create_World(self):

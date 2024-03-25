@@ -9,13 +9,14 @@ class SOLUTION:
         self.weights = 2 * numpy.random.rand(3, 2) - 1
         self.myID = nextAvailableID
 
-    def Evaluate(self, directOrGUI):
+    def Start_Simulation(self, directOrGUI):
         # SOLUTION.Create_World(self)
         # SOLUTION.Create_Body(self)
         SOLUTION.Create_Brain(self)
-        print(f"os.system self.myID: {self.myID}")
+        # print(f"os.system self.myID: {self.myID}")
         os.system("python3 simulate.py " + directOrGUI + " " + str(self.myID) + " &")
 
+    def Wait_For_Simulation_To_End(self, directOrGUI):
         fitnessFile = f"fitness{str(self.myID)}.txt"
 
         while not os.path.exists(fitnessFile):
@@ -23,9 +24,10 @@ class SOLUTION:
 
         f = open(fitnessFile, "r")
         self.fitness = float(f.read())
-        print(f"SELF.FITNESS: {self.fitness}")
+        print(f"SELF.FITNESS HELLO: {self.fitness}")
         f.close()
         os.system("del fitness" + str(self.myID) + ".txt")
+
 
     def Create_World(self):
         pass

@@ -2,6 +2,7 @@ import numpy
 import pyrosim.pyrosim as pyrosim
 import os
 import random
+import time
 
 class SOLUTION:
     def __init__(self, nextAvailableID):
@@ -9,15 +10,22 @@ class SOLUTION:
         self.myID = nextAvailableID
 
     def Evaluate(self, directOrGUI):
-        SOLUTION.Create_World(self)
-        SOLUTION.Create_Body(self)
+        # SOLUTION.Create_World(self)
+        # SOLUTION.Create_Body(self)
         SOLUTION.Create_Brain(self)
+        print(f"os.system self.myID: {self.myID}")
         os.system("python3 simulate.py " + directOrGUI + " " + str(self.myID) + " &")
 
-        fitnessFile = "fitness.txt"
+        fitnessFile = f"fitness{str(self.myID)}.txt"
+
+        while not os.path.exists(fitnessFile):
+            time.sleep(0.01)
+
         f = open(fitnessFile, "r")
         self.fitness = float(f.read())
+        print(f"SELF.FITNESS: {self.fitness}")
         f.close()
+        os.system("del fitness" + str(self.myID) + ".txt")
 
     def Create_World(self):
         pass

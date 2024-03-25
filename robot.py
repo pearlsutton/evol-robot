@@ -7,8 +7,8 @@ import numpy
 import os
 
 class ROBOT:
-    def __init__(self, solutionID):
-        self.solutionID = solutionID
+    def __init__(self, solutionIDArg):
+        self.solutionID = solutionIDArg
         self.nn = NEURAL_NETWORK(f"brain{self.solutionID}.nndf")
         self.motors = {}
         self.sensors = {}
@@ -46,6 +46,8 @@ class ROBOT:
         stateOfLinkZero = p.getLinkState(self.robotId,0)
         positionOfLinkZero = stateOfLinkZero[0]
         xCoordinateOfLinkZero = positionOfLinkZero[0]
-        f = open(f"fitness{self.solutionID}.txt", "w")
+        # f = open(f"fitness{self.solutionID}.txt", "w")
+        f = open(f"tmp{self.solutionID}.txt", "w")
+        os.system(f"mv tmp{self.solutionID}.txt fitness{self.solutionID}.txt")
         f.write(str(xCoordinateOfLinkZero))
         f.close()

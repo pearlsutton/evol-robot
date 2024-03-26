@@ -13,7 +13,6 @@ class PARALLEL_HILL_CLIMBER:
         for key in range(0, c.populationSize):
             self.parents[key] = SOLUTION(self.nextAvailableID)
             self.nextAvailableID += 1
-        # print(self.parents)
 
 
     def Evolve(self):
@@ -25,7 +24,8 @@ class PARALLEL_HILL_CLIMBER:
         self.Spawn()
         self.Mutate()
         self.Evaluate(self.children)
-        self.Print()
+        exit()
+        # self.Print()
         # self.Select()
 
     def Spawn(self):

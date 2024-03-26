@@ -16,20 +16,15 @@ class SOLUTION:
         # print(f"os.system self.myID: {self.myID}")
         os.system("python3 simulate.py " + directOrGUI + " " + str(self.myID) + " &")
 
-    def Wait_For_Simulation_To_End(self, directOrGUI):
+    def Wait_For_Simulation_To_End(self):
         fitnessFile = f"fitness{str(self.myID)}.txt"
-
         while not os.path.exists(fitnessFile):
             time.sleep(0.01)
-
         f = open(fitnessFile, "r")
         self.fitness = float(f.read())
-        print(f"SELF.FITNESS FAIRY: {self.fitness}")
-        # print("clown del fitness" + str(self.myID) + ".txt")
+        # print(f"SELF.FITNESS: {self.fitness}")
         f.close()
         os.system("rm fitness" + str(self.myID) + ".txt")
-
-
 
     def Create_World(self):
         pass

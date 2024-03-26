@@ -33,10 +33,24 @@ class PARALLEL_HILL_CLIMBER:
 
     def Spawn(self):
         self.children = {}
-        self.child = copy.deepcopy(self.parent)
-        self.child.Set_ID(self.nextAvailableID)
-        print("self.nextAvailableID: " + self.nextAvailableID)
-        self.nextAvailableID += 1
+        for i in range(len(self.parents)):
+            self.children[i] = copy.deepcopy(self.parents[i])
+            self.children[i].Set_ID(self.nextAvailableID)
+            self.nextAvailableID += 1
+
+        for key in self.children:
+            print(f"self.children[key]: {self.children[key]}")
+        exit()
+
+
+    # for key in range(0, c.populationSize):
+    #     self.parents[key] = SOLUTION(self.nextAvailableID)
+    #     self.nextAvailableID += 1
+
+        # self.child = copy.deepcopy(self.parent)
+        # self.child.Set_ID(self.nextAvailableID)
+        # print("self.nextAvailableID: " + self.nextAvailableID)
+        # self.nextAvailableID += 1
 
 
     def Mutate(self):

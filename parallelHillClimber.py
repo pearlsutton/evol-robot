@@ -2,9 +2,12 @@ from solution import SOLUTION
 import pybullet as p
 import constants as c
 import copy
+import os
 
 class PARALLEL_HILL_CLIMBER:
     def __init__(self):
+        os.system("rm brain*.nndf")
+        os.system("rm fitness*.nndf")
         self.nextAvailableID = 0
         self.parents = {}
         for key in range(0, c.populationSize):
@@ -22,14 +25,14 @@ class PARALLEL_HILL_CLIMBER:
             self.Evolve_For_One_Generation()
 
     def Evolve_For_One_Generation(self):
-        pass
-        # self.Spawn()
+        self.Spawn()
         # self.Mutate()
         # self.child.Evaluate("DIRECT")
         # self.Print()
         # self.Select()
 
     def Spawn(self):
+        self.children = {}
         self.child = copy.deepcopy(self.parent)
         self.child.Set_ID(self.nextAvailableID)
         print("self.nextAvailableID: " + self.nextAvailableID)

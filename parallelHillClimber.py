@@ -23,7 +23,7 @@ class PARALLEL_HILL_CLIMBER:
     def Evolve_For_One_Generation(self):
         self.Spawn()
         self.Mutate()
-        # self.child.Evaluate("DIRECT")
+        self.child.Evaluate("GUI")
         # self.Print()
         # self.Select()
 

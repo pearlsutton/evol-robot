@@ -38,21 +38,6 @@ class PARALLEL_HILL_CLIMBER:
             self.children[i].Set_ID(self.nextAvailableID)
             self.nextAvailableID += 1
 
-        for key in self.children:
-            print(f"self.children[key]: {self.children[key]}")
-        exit()
-
-
-    # for key in range(0, c.populationSize):
-    #     self.parents[key] = SOLUTION(self.nextAvailableID)
-    #     self.nextAvailableID += 1
-
-        # self.child = copy.deepcopy(self.parent)
-        # self.child.Set_ID(self.nextAvailableID)
-        # print("self.nextAvailableID: " + self.nextAvailableID)
-        # self.nextAvailableID += 1
-
-
     def Mutate(self):
         self.child.Mutate()
 

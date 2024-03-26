@@ -24,8 +24,8 @@ class PARALLEL_HILL_CLIMBER:
         self.Spawn()
         self.Mutate()
         self.Evaluate(self.children)
-        exit()
-        # self.Print()
+        # exit()
+        self.Print()
         # self.Select()
 
     def Spawn(self):
@@ -41,7 +41,7 @@ class PARALLEL_HILL_CLIMBER:
 
     def Evaluate(self, solutions):
         for key in solutions:
-            solutions[key].Start_Simulation("GUI")
+            solutions[key].Start_Simulation("DIRECT")
         for key in solutions:
             solutions[key].Wait_For_Simulation_To_End()
 

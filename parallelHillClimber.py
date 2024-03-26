@@ -28,7 +28,7 @@ class PARALLEL_HILL_CLIMBER:
         self.Evaluate(self.children)
         # exit()
         # self.child.Evaluate("GUI")
-        # self.Print()
+        self.Print()
         # self.Select()
 
     def Spawn(self):
@@ -44,12 +44,15 @@ class PARALLEL_HILL_CLIMBER:
 
     def Evaluate(self, solutions):
         for key in solutions:
-            solutions[key].Start_Simulation("GUI")
+            solutions[key].Start_Simulation("DIRECT")
         for key in solutions:
             solutions[key].Wait_For_Simulation_To_End()
 
     def Print(self):
-        print(f"Parent Fitness: {self.parent.fitness} Child Fitness: {self.child.fitness}")
+        print()
+        for key in self.parents:
+            print(f"Parent Fitness: {self.parents[key].fitness} Child Fitness: {self.children[key].fitness}")
+        print()
 
     def Select(self):
         if (self.parent.fitness > self.child.fitness):
